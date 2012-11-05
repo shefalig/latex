@@ -1,0 +1,17 @@
+digraph G {
+size ="2,2";
+a->b->c->d->e->f->g->h->i->j->k->l;
+i->d;
+a [shape=ellipse,color=red,label="start"];
+b[shape=parallelogram,label="get A and B"];
+c[shape=box,label="let b has m digits"];
+d[shape=box,label="i=m,p=1"];
+e[shape=box,label="multiply i th digit of B with A"];
+f[shape=box,label="multiply result with p"];
+g[shape=parallelogram,label="store result in array r"];
+h[shape=box,label="t=t-1,p=p*10"];
+i[shape=diamond,label="t>0?"];
+j[shape=box,label="add all results of r"];
+k[shape=parallelogram,label="write result"];
+l[shape=ellipse,color=red,label="end"];
+}

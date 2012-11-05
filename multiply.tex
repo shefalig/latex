@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage[english]{babel}
+\usepackage[font=small,labelfont=bf]{caption}
 \usepackage{graphicx}
 \usepackage{times}
 \usepackage{wrapfig}
@@ -13,27 +14,68 @@
 \section{Problem Statement}
 
 
-Write an algorithm to do long integer multiplication which was developed by developed by Leslie
+Write an algorithm to do long integer multiplication which was developed by Leslie
 Lamport\cite{lamport94},i.e., an algorithm to multiply two integers given as a list of their digits.
 
 \section{Algorithm}
 \begin{wrapfigure}{r}{0.1\textwidth}
-  \vspace{-2pt}
+  \vspace{-60pt}
   \begin{center}
     \includegraphics[width=0.1\textwidth]{mult2}
   \end{center}
-  \vspace{-10pt}
-  \caption{example}
+  \vspace{-20pt}
+  \caption{Example}
   \vspace{-20pt}
 \end{wrapfigure}
 Given two integers,assign one with greater number of digits as primary number and other one as seconday number.If both have equal number of digits,consider any of them to be primary number.
-Then take the last digit of the secondary number and do simple multiplication of that digit with the primary number.Write the obtained result just below the secondary number.Let us take an example from Donald Knuth's algo system\cite{knuth79} 
-Then take the second last digit of the secondary number and do simple multiplication with the primary number.Multiply the result obtained with 10 and write it just below the number obtained in the previous step.Similarly,multiply all the digits of the secondary number with the primary number and write the result by multiplying it with power of 10,i.e.,10,100 and so on.Then do simple addition on all the numbers got above.The result is the required answer.For example-multiplication of 678 and 42 is shown in adjacent figure.
 \newline
-\begin{figure}[h!]
+Then take the last digit of the secondary number and do simple multiplication of that digit with the primary number.Write the obtained result just below the secondary number.Let us take an example from Donald Knuth's algo system\cite{knuth79} For ex-multiplication of 678 and 42 can be done as follows-
+\newline
+678 - primary number
+\newline
+42 - secondary number
+\newline
+\newline
+\begin{tabular}{r}
+678\\
+$*$ 42\\
+\hline
+1356\\
+\end{tabular}
+\newline
+\newline
+Then take the second last digit of the secondary number and do simple multiplication with the primary number.Multiply the result obtained with 10 and write it just below the number obtained in the previous step.For example -
+\newline
+\begin{tabular}{r}
+678\\
+$*$ 42\\
+\hline
+1356\\
+27120\\
+\hline
+\end{tabular}
+\newline
+\newline
+Then do simple addition on all the numbers got above.The result is the required answer.
+\newline
+\newline
+\begin{tabular}{r}
+678\\
+$*$ 42\\
+\hline
+1356\\
+27120\\
+\hline
+28476\\
+\hline
+\end{tabular}
+\newline
+\newline
+28476 is the required result(product) of the multiplication of 678 and 42.
+\begin{figure}[htp]
   \caption{flowchart}
   \centering
-    \includegraphics[width=0.5\textwidth]{flow}
+    \includegraphics[width=1.0\textwidth]{flow}
 \end{figure}
 \section{Analysing time complexity}
 Let the two given numbers are of size n.In this algorithm,each digit of the secondary number is multiplied with each digit of the primary number once.So,the total number of steps taken here is $n^2$ ,i.e.,of O($n^2$).The addition of the two n digit numbers has the time complexity of order n.Here,the addition of n numbers is done so the time complexity of addition process is of order $n^2$.So,the overall time complexity of the algorithm is O($n^2$) and the time take by the algorithm is propotional to $n^2$.There is a detailed explanation of complexity in Companion\cite{goossens93} and Rahtz's\cite{rahtz89}
